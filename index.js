@@ -37,6 +37,20 @@ app.post('/sign-up', async (req, res) => {
     }
 })
 
+//sign-in route
+
+app.post('/sign-in', async (req, res) => {
+    const { email, password} = req.body
+
+    const user = await db.collection('users').findOne({ email })
+
+    if (user && bcrypt.compareSync(password, user.password)) {
+        res.sendStatus(200)
+    } else {
+        res.sendStatus(401)
+    }
+})
+
 app.listen(5000, () => {
     console.log('server barulhando na porta 5000')
 })
