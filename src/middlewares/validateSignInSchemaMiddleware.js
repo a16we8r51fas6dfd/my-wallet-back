@@ -1,4 +1,4 @@
-import signInSchema from "../src/schemas/signInSchema.js.js"
+import signInSchema from "../schemas/signInSchema.js"
 
 export default function validateSignInSchema(req, res, next) {
     const validation = signInSchema.validate(req.body)
