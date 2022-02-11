@@ -8,6 +8,6 @@ app.use(json())
 
 app.use(router)
 
-app.listen(5000, () => {
-    console.log('server barulhando na porta 5000')
+app.listen(process.env.PORT, () => {
+    console.log('server barulhando na porta' + process.env.PORT)
 })
